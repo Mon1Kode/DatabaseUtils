@@ -1,3 +1,7 @@
+## 0.0.3+1
+
+* Fix the `getList` method to get the list of data from the database.
+
 ## 0.0.3
 
 * Add `getList` method to get the list of data from the database.
