@@ -41,14 +41,15 @@ class DatabaseUtils {
   /// If the path is null, the data at the root of the database is retrieved.
   ///
   /// [path] is a string representing the path in the Firebase Database.
-  static Future<List<dynamic>> getList(String? path) async {
-    List<dynamic> list = [];
-    DataSnapshot snapshot = await get(path);
+  static Future<List<T>> getList<T>(String? path) async {
+    List<T> list = [];
+    DataSnapshot snapshot = await DatabaseUtils.get(path);
     if (snapshot.value != null) {
-      Map<dynamic, dynamic> map = snapshot.value as Map<dynamic, dynamic>;
-      map.forEach((key, value) {
-        list.add(value);
-      });
+      var rawData = snapshot.value as List;
+      for (var data in rawData) {
+        list.add(data as T);
+      }
+      return list;
     }
     return list;
   }
