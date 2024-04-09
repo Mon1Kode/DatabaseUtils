@@ -22,17 +22,36 @@ class DatabaseUtils {
     return ref;
   }
 
-  /// Returns a Future that completes with a DataSnapshot containing the data at the specified location in the database.
+  /// Returns a Future that completes with a DataSnapshot containing the data at the specified location in the database order by key.
   ///
   /// This method retrieves the data at the given path in the Firebase Database.
   /// If the path is null, the data at the root of the database is retrieved.
   ///
   /// [path] is a string representing the path in the Firebase Database.
-  static Future<DataSnapshot> get(String? path) async => await ref(path).get();
+  static Future<DataSnapshot> get(String? path) async =>
+      await ref(path).orderByKey().get();
 
   // endregion
 
   // region ----------Actions----------
+
+  /// Returns a Future that completes with a List containing the data at the specified location in the database.
+  ///
+  /// This method retrieves the data at the given path in the Firebase Database.
+  /// If the path is null, the data at the root of the database is retrieved.
+  ///
+  /// [path] is a string representing the path in the Firebase Database.
+  static Future<List<dynamic>> getList(String? path) async {
+    List<dynamic> list = [];
+    DataSnapshot snapshot = await get(path);
+    if (snapshot.value != null) {
+      Map<dynamic, dynamic> map = snapshot.value as Map<dynamic, dynamic>;
+      map.forEach((key, value) {
+        list.add(value);
+      });
+    }
+    return list;
+  }
 
   /// Sets the data at the specified location in the database.
   ///

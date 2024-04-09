@@ -1,3 +1,8 @@
+## 0.0.3
+
+* Add `getList` method to get the list of data from the database.
+* Fix `get` method to get the data from the database. Now is ordered by the key.
+
 ## 0.0.2
 
 * Add the example to the `README.md` file.
