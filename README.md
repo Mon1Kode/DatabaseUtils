@@ -10,7 +10,7 @@ To use this class, you need to add the following dependency in your pubspec.yaml
 dependencies:
   flutter:
     sdk: flutter
-  database_utils: ^0.0.1
+  database_utils: ^0.0.4
 ```
 
 Then, you need to import the class in your file:

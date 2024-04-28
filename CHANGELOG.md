@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Add the `insertData` method to insert the data in the database at the specified path and specified index.
+
 ## 0.0.3+2
 
 * Fix the `getList` method, now if the data is null, the data is skipped.

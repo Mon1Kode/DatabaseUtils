@@ -74,6 +74,25 @@ class DatabaseUtils {
   static Future<void> update(String? path, Map<String, dynamic> value) async =>
       await ref(path).update(value);
 
+  /// Inserts the data at the specified location in the database.
+  ///
+  /// This method inserts the data at the given path in the Firebase Database.
+  /// If the path is null, the data at the root of the database is inserted.
+  ///
+  /// [path] is a string representing the path in the Firebase Database.
+  ///
+  /// [dataToInsert] is the data to insert.
+  ///
+  /// [index] is the index where the data will be inserted.
+  ///
+  /// [T] is the type of the data to insert.
+  void insertData<T>(String? path, T dataToInsert, int index) async {
+    var lastChild = path == null ? "/" : path.split("/").last;
+    var data = await DatabaseUtils.getList<T>(path);
+    data.insert(index, dataToInsert);
+    await DatabaseUtils.update(path, {lastChild: data});
+  }
+
   /// Removes the data at the specified location in the database.
   ///
   /// This method removes the data at the given path in the Firebase Database.
