@@ -1,3 +1,7 @@
+## 0.0.3+2
+
+* Fix the `getList` method, now if the data is null, the data is skipped.
+
 ## 0.0.3+1
 
 * Fix the `getList` method to get the list of data from the database.

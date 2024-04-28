@@ -47,7 +47,7 @@ class DatabaseUtils {
     if (snapshot.value != null) {
       var rawData = snapshot.value as List;
       for (var data in rawData) {
-        list.add(data as T);
+        if (data is T) list.add(data);
       }
       return list;
     }
