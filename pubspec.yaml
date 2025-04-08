@@ -2,7 +2,7 @@ name: database_utils
 description: A full static class to manage the database operations in Flutter using Firebase Realtime Database.
 repository: https://github.com/MoniKode-Mobile-Solutions/DatabaseUtils
 homepage: https://www.monikode.com
-version: 0.0.4
+version: 1.0.0
 
 environment:
   sdk: '>=3.3.1 <4.0.0'

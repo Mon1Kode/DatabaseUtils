@@ -1,3 +1,8 @@
+## 1.0.0
+
+**BREAKING CHANGE**
+* Update a dependency to the latest release. (from `firebase_database: ^10.5.1` to `firebase_database: ^11.3.5`)
+
 ## 0.0.4
 
 * Add the `insertData` method to insert the data in the database at the specified path and specified index.
